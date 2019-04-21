@@ -5,12 +5,12 @@ from flask_sqlalchemy import SQLAlchemy
 # instantiate db
 db = SQLAlchemy()
 
-def create_app(script_info=None):
 
+def create_app(script_info=None):
     # instantiate the app
     app = Flask(__name__)
 
-    #set config
+    # set config
     app_settings = os.getenv('APP_SETTINGS')
     app.config.from_object(app_settings)
 
@@ -28,5 +28,5 @@ def create_app(script_info=None):
             'app': app,
             'db': db
         }
-    
+
     return app

@@ -6,12 +6,14 @@ from project import db
 
 users_blueprint = Blueprint('users', __name__, template_folder='./templates')
 
+
 @users_blueprint.route('/users/ping', methods=['GET'])
 def ping_pong():
     return jsonify({
         'status': 'success',
         'message': 'pong!'
     })
+
 
 @users_blueprint.route('/users', methods=['POST'])
 def add_user():
@@ -64,6 +66,7 @@ def get_single_user(user_id):
     except ValueError:
         return jsonify(response_object), 404
 
+
 @users_blueprint.route('/users', methods=['GET'])
 def get_all_users():
     """Get all users"""
@@ -74,6 +77,7 @@ def get_all_users():
         }
     }
     return jsonify(response_object), 200
+
 
 @users_blueprint.route('/', methods=['GET', 'POST'])
 def index():
